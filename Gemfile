@@ -34,10 +34,14 @@ gem 'faraday', '~> 2.7'
 
 group :development, :test do
   gem 'debug', platforms: %i[mri mswin mswin64 mingw x64_mingw]
+  gem 'rspec-rails', '~> 6.0'
 end
 
 group :test do
+  gem 'airborne', '~> 0.0.18'
+  gem 'rspec', '~> 3.12'
   gem 'rubocop', '~> 1.56', '>= 1.56.4'
+  gem 'webmock'
 end
 
 group :development do

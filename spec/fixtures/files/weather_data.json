@@ -1,0 +1,25 @@
+[
+  {
+    "LocalObservationDateTime": "2023-10-07T01:52:00+07:00",
+    "EpochTime": 1696618320,
+    "WeatherText": "Mostly clear",
+    "WeatherIcon": 34,
+    "HasPrecipitation": false,
+    "PrecipitationType": null,
+    "IsDayTime": false,
+    "Temperature": {
+      "Metric": {
+        "Value": 3.8,
+        "Unit": "C",
+        "UnitType": 17
+      },
+      "Imperial": {
+        "Value": 39,
+        "Unit": "F",
+        "UnitType": 18
+      }
+    },
+    "MobileLink": "http://www.accuweather.com/en/ru/krasnoyarsk/293708/current-weather/293708?lang=en-us",
+    "Link": "http://www.accuweather.com/en/ru/krasnoyarsk/293708/current-weather/293708?lang=en-us"
+  }
+]

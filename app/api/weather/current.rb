@@ -1,16 +1,15 @@
 module Weather
   class Current < Grape::API
+    desc 'Returns current weather'
+
     helpers WeatherService, WeatherJsonHelper
 
-    desc 'Returns current weather'
     get :current do
-      fields = current
+      data = current_weather.first
+      return {} unless data
 
-      jbuilder do |json|
-        json.call(fields) do |field|
-          json.temperature field.dig('Temperature', 'Metric')
-        end
-      end
+      temp = ->(builder) { builder.temperature data.dig('Temperature', 'Metric') }
+      jbuilder(&temp)
     end
   end
 end

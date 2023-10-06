@@ -16,14 +16,14 @@ module WeatherService
     end
   end
 
-  def current
+  def current_weather
     read_data(
       endpoint: '/currentconditions/v1/293708',
       params: { apikey: ENV['API_KEY'] }
     )
   end
 
-  def historical
+  def historical_weather
     read_data(
       endpoint: '/currentconditions/v1/293708/historical/24',
       params: { apikey: ENV['API_KEY'] }

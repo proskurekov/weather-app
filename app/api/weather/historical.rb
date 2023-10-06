@@ -6,7 +6,7 @@ module Weather
 
     namespace :historical do
       before do
-        @json ||= historical
+        @json ||= historical_weather
         @api_builder = JsonBuilder.new(@json)
         @api_builder.autofill
       end
@@ -32,6 +32,8 @@ module Weather
       get :avg do
         @api_builder.builder do |builder|
           values = @api_builder.values
+          next unless values.present?
+
           avg_value = values.reduce(:+) / values.size
           builder.value avg_value.round(1)
         end
