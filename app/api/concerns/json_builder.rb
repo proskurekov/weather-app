@@ -3,21 +3,39 @@
 class JsonBuilder
   include WeatherJsonHelper
 
-  attr_reader :values
+  attr_reader :values, :timestamps
 
   def initialize(json)
     @json    = json
     @values  = []
     @history = []
+    @timestamps = []
   end
 
   def autofill
     builder do |builder|
-      builder.call(@json) do |field|
-        field.extend(WeatherJsonHelper::HashHelper)
-        @values  << field.temperature_value
-        @history << field.statistics
-      end
+      builder.call(@json, &autofill_proc)
+    end
+  end
+
+  def autofill_proc
+    proc do |field|
+      field.extend(WeatherJsonHelper::HashHelper)
+      @values  << field.temperature_value
+      @history << field.statistics
+    end
+  end
+
+  def collect_timestamps
+    builder do |builder|
+      builder.call(@json, &timestamp_proc)
+    end
+  end
+
+  def timestamp_proc
+    proc do |field|
+      field.extend(WeatherJsonHelper::HashHelper)
+      @timestamps << field.timestamp
     end
   end
 

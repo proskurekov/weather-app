@@ -15,7 +15,11 @@ module WeatherJsonHelper
     end
 
     def date
-      convert_date(dig('EpochTime'))
+      convert_date(timestamp)
+    end
+
+    def timestamp
+      dig('EpochTime')
     end
 
     def convert_date(date)

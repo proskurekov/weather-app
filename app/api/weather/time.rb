@@ -1,8 +1,21 @@
 module Weather
   class Time < Grape::API
-    desc 'Returns current weather'
+    desc 'Returns date by timestamp'
+
+    helpers WeatherService
+
+    params do
+      requires :timestamp
+    end
+
+    before do
+      @json ||= historical_weather
+      @api_builder = JsonBuilder.new(@json)
+    end
+
     get :by_time do
-      { time: 'time' }
+      @api_builder.collect_timestamps
+      { tt: @api_builder.timestamps }
     end
   end
 end
