@@ -35,7 +35,7 @@ class JsonBuilder
   def timestamp_proc
     proc do |field|
       field.extend(WeatherJsonHelper::HashHelper)
-      @timestamps << field.timestamp
+      @timestamps << Hash[field.timestamp, field.date]
     end
   end
 
