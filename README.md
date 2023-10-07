@@ -1,24 +1,30 @@
-# README
+## Weather app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+1. Rails
+2. Grape
+3. Grape swagger
+4. Rspec
+5. Airborne
 
-Things you may want to cover:
+## API - accuweather
 
-* Ruby version
+```
+# env.template
+API_KEY=key
+```
 
-* System dependencies
+```
+ city_code = 293708 - Krasnoyarsk
+```
 
-* Configuration
+Endpoints: 
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+/api/weather/current
+/api/weather/historical
+/api/weather/historical/min
+/api/weather/historical/max
+/api/weather/historical/avg
+/api/weather/by_time?timestamp=1111111111
+/api/weather/health
+```
