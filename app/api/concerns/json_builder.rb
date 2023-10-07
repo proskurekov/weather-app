@@ -46,7 +46,7 @@ class JsonBuilder
 
       result.each do |res|
         res.each do |k, v|
-          builder.data  v
+          builder.date  v
           builder.value k
         end
       end

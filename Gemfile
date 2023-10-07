@@ -38,10 +38,10 @@ group :development, :test do
 end
 
 group :test do
-  gem 'airborne', '~> 0.0.18'
   gem 'rspec', '~> 3.12'
   gem 'rubocop', '~> 1.56', '>= 1.56.4'
   gem 'webmock'
+  gem 'airborne', github: 'brooklynDev/airborne'
 end
 
 group :development do
